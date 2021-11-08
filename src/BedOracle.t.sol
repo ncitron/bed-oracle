@@ -66,4 +66,19 @@ contract BedOracleTest is DSTest {
 
         assertEq(price, expectedPrice);
     }
+
+    function prove_getPrice(uint96 btcPrice, uint96 dpiPrice) public {
+        btcFeed.setPrice(int(uint(btcPrice)));
+        dpiFeed.setPrice(int(uint(dpiPrice)));
+
+        uint256 price = oracle.getPrice();
+
+        uint256 wbtcValue = uint(bed.getDefaultPositionRealUnit(wbtc))*10**10 * uint(btcFeed.latestAnswer()) / 1 ether;
+        uint256 dpiValue = uint(bed.getDefaultPositionRealUnit(dpi)) * uint(dpiFeed.latestAnswer()) / 1 ether;
+        uint256 wethValue = uint(bed.getDefaultPositionRealUnit(weth));
+
+        uint256 expectedPrice = wbtcValue + dpiValue + wethValue;
+
+        assertEq(price, expectedPrice);
+    }
 }
