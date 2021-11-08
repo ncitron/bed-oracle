@@ -1,4 +1,7 @@
+-include .env
+
 all    :; dapp build
 clean  :; dapp clean
 test   :; dapp test
-deploy :; dapp create BedOracle
+
+deploy :; @./scripts/deploy.sh
