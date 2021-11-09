@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
-import { IChainlinkAggregatorV3 } from "./IChainlinkAggregatorV3.sol";
-import { ISetToken } from "./ISetToken.sol";
+import { IChainlinkAggregatorV3 } from "./interfaces/IChainlinkAggregatorV3.sol";
+import { ISetToken } from "./interfaces/ISetToken.sol";
 
 import { SafeCast } from "@openzeppelin/contracts/utils/math/SafeCast.sol";
 
