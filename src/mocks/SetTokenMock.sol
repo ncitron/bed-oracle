@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
 
-import { ISetToken } from "./ISetToken.sol";
+import { ISetToken } from "../interfaces/ISetToken.sol";
 
 contract SetTokenMock is ISetToken {
 

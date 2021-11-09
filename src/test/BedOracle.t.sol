@@ -3,10 +3,10 @@ pragma solidity ^0.8.6;
 
 import "ds-test/test.sol";
 
-import { BedOracle } from "./BedOracle.sol";
-import { ChainlinkAggregatorV3Mock } from "./ChainlinkAggregatorV3Mock.sol";
-import { IChainlinkAggregatorV3 } from "./IChainlinkAggregatorV3.sol";
-import { SetTokenMock } from "./SetTokenMock.sol";
+import { BedOracle } from "../BedOracle.sol";
+import { ChainlinkAggregatorV3Mock } from "../mocks/ChainlinkAggregatorV3Mock.sol";
+import { IChainlinkAggregatorV3 } from "../interfaces/IChainlinkAggregatorV3.sol";
+import { SetTokenMock } from "../mocks/SetTokenMock.sol";
 
 
 contract BedOracleTest is DSTest {
@@ -67,7 +67,7 @@ contract BedOracleTest is DSTest {
         assertEq(price, expectedPrice);
     }
 
-    function prove_getPrice(uint96 btcPrice, uint96 dpiPrice) public {
+    function test_getPrice(uint96 btcPrice, uint96 dpiPrice) public {
         btcFeed.setPrice(int(uint(btcPrice)));
         dpiFeed.setPrice(int(uint(dpiPrice)));
 
